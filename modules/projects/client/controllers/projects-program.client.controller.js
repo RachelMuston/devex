@@ -52,23 +52,7 @@
         vm.error = res.data.message;
       }
     }
-  }
-
-
-  angular.module("app",[]).controller("myCtrl",function($scope) {
-    $scope.units = [
-      {'id': 10, 'label': 'test1'},
-      {'id': 27, 'label': 'test2'},
-      {'id': 39, 'label': 'test3'},
-    ]
-
-    $scope.data = {
-      'id': 1,
-      'unit': 27
-    }
-
-  });
-
+  };
 
   function ProjectsSelectedProgram() {
     var mongoose = require('mongoose');
@@ -76,10 +60,10 @@
     var program = Program.find({}, function(err, program) {
       if (err){
         console.log(err);
-        return json(err);
+        return err.toJSON();
       }
       else {
-        return json(program);
+        return program.toJSON();
       }
     });
   }
