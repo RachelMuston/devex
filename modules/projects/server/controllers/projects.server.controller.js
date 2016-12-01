@@ -24,23 +24,31 @@ exports.create = function(req, res) {
   // curl -u "dewolfe001:39c1cffc1008ed43189ecd27448bd903a75778eb" https://api.github.com/user/repos -d '{"name":"'helloGit'"}'
 
   var url = 'api.github.com';
-  var user = 'abcde12345fghij67890'; // config.github.clientID;
-  var secret = '25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8'; // config.github.clientSecret;
+  var user = config.github.clientID; // 'abcde12345fghij67890';
+  var secret = config.github.clientSecret; // '25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8';
 
     var options = {
-      host: 'api.github.com',
-      path: '/user/repos?clientID=' + user + '&clientSecret=' + secret,
+      host: url,
+      auth: user + ':' + secret,
+      path: '/user/repos',
       port: 443,
       method: 'POST',
-      json: { name: project.name.toString(), description: project.description.toString() },
+      json: { name: project.name.toString(),
+              description: project.description.toString()
+            },
       headers: { 'User-Agent': 'github-app' }
     };
 
-    var request = http.request(options, function(response){
-      var body = '';
-      response.on("data", function(chunk){ body+=chunk.toString("utf8"); });
+    var request = http.request(options, function(err, response, body){
+      if (err) {
+        console.log('Uh-oh, ScrapeNexts Error!: ' + err + ' using ' + url);
+      }
 
-      response.on("end", function(){
+      console.log('looking for feedback from line 43');
+      var body = '';
+      response.on('data', function(chunk){ body+=chunk.toString('utf8'); });
+
+      response.on('end', function(){
         var json = JSON.parse(body);
         console.log(json);
       });
