@@ -50,6 +50,7 @@ module.exports = {
   github: {
     clientID: process.env.GITHUB_ID || 'fbcf57c13acde5c036c6',
     clientSecret: process.env.GITHUB_SECRET || 'c8f0654b5ce9e8af026116b10afa6dfba419f558',
+    personalToken: '16cc2fcdcba4327831d42c0b90ecdad05f6de972',
     callbackURL: '/api/auth/github/callback'
   },
   paypal: {
