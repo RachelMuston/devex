@@ -16,7 +16,6 @@ exports.create = function(req, res) {
 	var project = new Project(req.body);
 	project.user = req.user;
 
-	var http = require('http');
 	var github = require('octonode');
 	var path = require('path'),
 		config = require(path.resolve('./config/config'));
@@ -24,84 +23,24 @@ exports.create = function(req, res) {
   // curl -u "dewolfe001:39c1cffc1008ed43189ecd27448bd903a75778eb" https://api.github.com/user/repos -d '{"name":"'helloGit'"}'
 
   var url = 'api.github.com';
-  var user = config.github.clientID; // 'abcde12345fghij67890';
-  var secret = config.github.clientSecret; // '25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8';
+  var user = config.github.clientID;
+  var secret = config.github.clientSecret;
+  var token = config.github.personalToken; // added to env/development.js
 
-    var options = {
-      host: url,
-      auth: user + ':' + secret,
-      path: '/user/repos',
-      port: 443,
-      method: 'POST',
-      json: { name: project.name.toString(),
-              description: project.description.toString()
-            },
-      headers: { 'User-Agent': 'github-app' }
-    };
+  var client = github.client(token);
+  var ghme = client.me();
+  var util = require('util');
 
-    var request = http.request(options, function(err, response, body){
-      if (err) {
-        console.log('Uh-oh, ScrapeNexts Error!: ' + err + ' using ' + url);
-      }
-
-      console.log('looking for feedback from line 43');
-      var body = '';
-      response.on('data', function(chunk){ body+=chunk.toString('utf8'); });
-
-      response.on('end', function(){
-        var json = JSON.parse(body);
-        console.log(json);
-      });
-    });
-
-    request.end();
-
-  // var GitHubApi = require('github');
-  //
-  // var github = new GitHubApi({
-  //   // optional
-  //   debug: true,
-  //   protocol: "https",
-  //   host: url, // should be api.github.com for GitHub
-  //   headers: {
-  //     "user-agent": "BCDevex" // GitHub is happy with a unique user agent
-  //   },
-  //   Promise: require('bluebird'),
-  //   followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
-  //   timeout: 5000
-  // });
-  //
-  // github.authenticate({
-  //   type: "oauth",
-  //   key: user,
-  //   secret: secret
-  // });
-  //
-  // github.repos.create({
-  //   name: project.name.toString(),
-  //   description: project.description.toString()
-  // });
-
-
-  // var client = github.client({
-  //   id: user,
-  //   secret: secret
-  // });
-  // var ghme = client.me();
-  //
-  // project.github = ghme.repo({
-  // 	name: project.name.toString(),
-  // 	description : project.description.toString()
-	// },  function (err, data) {
-	// 	if (err) {
-	// 		return console.error(err + "\n" + data);
-	// 	}
-	// 	else {
-	// 		return data.html_url;
-	// 	}
-	// }
-  // );
-
+  var html_url = ghme.repo({
+  	name: project.name.toString(),
+  	description : project.description.toString()
+	}, function(err, res, req) {
+      console.log('line 39 - ' + util.inspect(res.html_url));
+      return res.html_url;
+  });
+  project.github = html_url;
+  console.log('line 45' + util.inspect(html_url));
+  
   project.save(function(err) {
     if (err) {
       return res.status(400).send({
