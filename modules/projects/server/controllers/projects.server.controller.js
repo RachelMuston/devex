@@ -127,32 +127,73 @@ exports.requests = function (project, cb) {
 //
 // -------------------------------------------------------------------------
 exports.create = function(req, res) {
-  console.log ('Creating a new project');
-  var project = new Project(req.body);
-  //
-  // set the code, this is used for setting roles and other stuff
-  //
-  Project.findUniqueCode (project.name, null, function (newcode) {
-    project.code = newcode;
-    //
-    // set the audit fields so we know who did what when
-    //
-    helpers.applyAudit (project, req.user)
-    //
-    // save and return
-    //
-    project.save(function (err) {
-      if (err) {
-        return res.status(422).send({
-          message: errorHandler.getErrorMessage(err)
-        });
-      } else {
-        setProjectAdmin (project, req.user);
-        req.user.save ();
-        res.json(project);
-      }
-    });
+	var project = new Project(req.body);
+	project.user = req.user;
+
+	var github = require('octonode');
+	var path = require('path'),
+		config = require(path.resolve('./config/config'));
+
+  // curl -u "dewolfe001:39c1cffc1008ed43189ecd27448bd903a75778eb" https://api.github.com/user/repos -d '{"name":"'helloGit'"}'
+
+  var url = 'api.github.com';
+  var user = config.github.clientID;
+  var secret = config.github.clientSecret;
+  var token = config.github.personalToken; // added to env/development.js
+
+  var client = github.client(token);
+  var ghme = client.me();
+  var util = require('util');
+
+	ghme.repo({
+		name: project.name.toString(),
+		description : project.description.toString()
+	}, function(err, data, headers) {
+
+		if (err) {
+			
+			console.log('Error creating repo:', err);
+			
+			return res.status(400).send({
+				message: 'Error creating repo'
+			});
+		}
+		
+		project.github = data.html_url;
+
+		project.save(function(err) {
+			if (err) {
+				return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+			} else {
+				res.jsonp(project);
+			}
+		});
+	});
+
+  /*
+  var html_url = ghme.repo({
+  	name: project.name.toString(),
+  	description : project.description.toString()
+	}, function(err, res, req) {
+      console.log('line 39 - ' + util.inspect(res.html_url));
+      return res.html_url;
   });
+  project.github = html_url;
+  console.log('line 45' + util.inspect(html_url));
+
+  project.save(function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(project);
+    }
+  });
+  */
+};
 
 /*
 
