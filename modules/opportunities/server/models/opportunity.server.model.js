@@ -38,6 +38,27 @@ var OpportunitySchema = new Schema({
 	createdBy    : {type: 'ObjectId', ref: 'User', default: null },
 	updated      : {type: Date, default: null },
 	updatedBy    : {type: 'ObjectId', ref: 'User', default: null }
+	// ,
+	// proposals    : [
+	// 	user             : {type:'ObjectId', ref: 'User', default: null, required: 'User cannot be blank'},
+		// firstName        : {type: String, trim: true, default: ''},
+		// lastName         : {type: String, trim: true, default: ''},
+		// displayName      : {type: String, trim: true },
+		// email            : {type: String, lowercase: true, trim: true, default: '', validate: [validateLocalStrategyEmail, 'Please fill a valid email address'] },
+		// telephone        : {type: String, default: ''},
+		// isDeveloper      : {type: Boolean, default: false},
+		// paymentMethod    : {type: String, default:'Cheque', enum:['Cheque', 'Direct Deposit', 'PayPal']},
+		// businessName     : {type: String, default: ''},
+		// businessAddress  : {type: String, default: ''},
+		// businessAddress2 : {type: String, default: ''},
+		// businessCity     : {type: String, default: ''},
+		// businessProvince : {type: String, default: '', enum: ['AB', 'BC', 'MB', 'NB', 'NL', 'NT', 'NS', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT']},
+		// businessCode     : {type: String, default: ''}
+	// 	agreedToTerms    : {type: Boolean, default: false},
+	// 	text             : {type: String, default: ''},
+	// 	documents        : {type: [{type:String}], default: []}
+	// ],
+	// assignees    : {type: [{type:'ObjectId', ref: 'User'}], default: []}
 });
 
 OpportunitySchema.statics.findUniqueCode = function (title, suffix, callback) {

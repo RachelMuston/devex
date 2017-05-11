@@ -34,7 +34,8 @@ var whitelistedFields = [
 	'businessAddress2' ,
 	'businessCity'     ,
 	'businessProvince' ,
-	'businessCode'
+	'businessCode'     ,
+	'telephone'
 ];
 var oppEmailNotifier = notifier('opportunities', 'email');
 
@@ -268,7 +269,8 @@ exports.me = function (req, res) {
       businessAddress2 : req.user.businessAddress2,
       businessCity     : req.user.businessCity,
       businessProvince : req.user.businessProvince,
-      businessCode     : req.user.businessCode
+      businessCode     : req.user.businessCode,
+      telephone        : req.user.telephone
 
 		};
 	}

@@ -35,7 +35,8 @@ exports.renderIndex = function (req, res) {
       businessAddress2 : req.user.businessAddress2,
       businessCity     : req.user.businessCity,
       businessProvince : req.user.businessProvince,
-      businessCode     : req.user.businessCode
+      businessCode     : req.user.businessCode,
+      telephone : req.user.telephone
     };
   }
 

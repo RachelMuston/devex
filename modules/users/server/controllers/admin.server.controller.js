@@ -46,6 +46,7 @@ exports.update = function (req, res) {
       user.businessCity     = req.body.businessCity;
       user.businessProvince = req.body.businessProvince;
       user.businessCode     = req.body.businessCode;
+      user.telephone        = req.body.telephone;
   userController.subscriptionHandler(user,prevState)
   .then(function() {
     user.save(function (err) {

@@ -85,9 +85,13 @@ var UserSchema = new Schema({
   resetPasswordToken       : {type: String },
   resetPasswordExpires     : {type: Date },
   //
+  // only need for developer
+  //
+  //
   // this is where we put the payment preferences for users who are developers
   // all of these need to be added to the field whitelists
   //
+  telephone        : {type: String, default: ''},
   isDeveloper      : {type: Boolean, default: false},
   paymentMethod    : {type: String, default:'Cheque', enum:['Cheque', 'Direct Deposit', 'PayPal']},
   businessName     : {type: String, default: ''},
