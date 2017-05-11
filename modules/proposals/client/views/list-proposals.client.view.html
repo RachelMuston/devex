@@ -1,0 +1,13 @@
+<section class="list-page">
+<div class="container" ng-if="!vm.isUser">
+  <div class="row">
+    <div class="col-xs-12" style="text-align: center; line-height: 1.5em;">
+      <h3 style="padding-bottom: 30px;">Want to get notified when new proposals are posted?<br><br><a ui-sref="authentication.gov" class="btn btn-lg btn-solo btn-warning">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+<div class="container" role="main">
+		<proposal-list context="allproposals"></proposal-list>
+</div>
+</section>

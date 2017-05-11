@@ -1,0 +1,324 @@
+<section class="form-page">
+<div class="container" role="main">
+	<!-- <div ncy-breadcrumb></div> -->
+	<form id="proposalForm" warn-on-exit name="vm.form.proposalForm" class="form" ng-submit="vm.save(vm.form.proposalForm.$valid)" novalidate>
+	<div class="row form-head">
+		<div class="col-md-6">
+			<h2 ng-if="vm.editing">Editing: {{::vm.proposal.name}}</h2>
+			<h2 ng-if="!vm.editing">New Proposal</h2>
+		</div>
+		<div class="col-md-6 col-form-buttons text-right">
+			<div class="btn-group">
+				<button type="submit" href="javascript:void(0);" uib-tooltip="Save your work anytime. You can always come back later." class="btn btn-primary">
+					<i class="glyphicon glyphicon-save"></i> Save
+				</button>
+ 				<a class="btn btn-default" href="{{vm.previousState.url}}" title="Cancel">
+					<i class="glyphicon glyphicon-fast-backward"></i> Cancel
+				</a>
+				<a href="javascript:void(0);" ng-if="vm.editing" class="btn btn-default" ng-click="vm.remove()" title="Remove">
+					<i class="glyphicon glyphicon-trash"></i> Remove
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="well" style="margin-left: 15px; margin-right: 15px;">
+	      <h4>Define what you need. Evaluate proposals. Select a developer.</h4>
+	      <p>Paid proposals posted on the BCDevExchange are governed by the <a href="https://github.com/BCDevExchange/code-with-us/raw/master/Code%20With%20Us%20Paid%20Terms_Nov_28.pdf">terms</a> of our lightweight procurement model, Code With Us.</p>
+	      <p><a href="/codewithusps">Read more</a> to understand your responsibilities for managing an proposal.</p>
+		</div>
+	</div>
+	<div class="row">
+	<div class="col-sm-12">
+		<fieldset>
+			<!--<div class="form-group">
+				<a ui-sref="programs.view({programId:vm.programId})"><i class="fa fa-university"></i> {{vm.programTitle}}</a>
+				<span ng-if="!vm.programId">To choose a program, please select a Project.</span>
+			</div>-->
+
+			<div class="form-group" ng-if="vm.projectLink" >
+				<a ui-sref="projects.view({projectId:vm.projectId})"><i class="fa fa-pie-chart"></i> {{vm.projectTitle}}</a>
+			</div>
+			<div class="form-group" >
+				<label class="control-label" for="project">Project</label>
+				<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('project')"></i>
+				<div class="input-help alert alert-info" data-field="project" ng-show="vm.displayHelp.project">
+					Select the project that this proposal falls under. If you don't see the project in the dropdown list, you'll need to go to the Projects tab and create a new project page first.
+				</div>
+				<select ng-if="!vm.projectLink && vm.context === 'program'"
+					name="project"
+					ng-model="vm.projectId"
+					id="project"
+					class="form-control"
+					ng-options="obj._id as obj.name for obj in vm.projects"
+				><option value="">Select Project</option>
+				</select>
+				<select ng-if="!vm.projectLink && vm.context === 'allproposals'"
+					name="project"
+					ng-change="vm.updateProgramProject()"
+					ng-model="vm.projectobj"
+					id="project"
+					class="form-control"
+					ng-options="obj as obj.name group by obj.program.title for obj in vm.projects"
+				><option value="">Select Project</option>
+				</select>
+			</div>
+
+			<br><br>
+			<div class="form-group" show-errors>
+				<label class="control-label" for="title">Title</label>
+				<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('title')"></i>
+				<div class="input-help alert alert-info" data-field="title" ng-show="vm.displayHelp.title">
+					Create a short title for the proposal that conveys the core of the work you need done.
+				</div>
+				<input name="title" type="text" ng-model="vm.proposal.name" id="title" class="form-control" placeholder="Title" required>
+				<div ng-messages="vm.form.proposalForm.title.$error" role="alert">
+					<p class="help-block error-text" ng-message="required">Proposal title is required.</p>
+				</div>
+			</div>
+
+			<div class="form-group" show-errors>
+				<label class="control-label" for="short">Teaser</label>
+				<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('short')"></i>
+				<div class="input-help alert alert-info" data-field="short" ng-show="vm.displayHelp.short">
+					Enter a 1-2 sentence description that will entice readers to apply on this proposal. Describe what you are inviting them to do.
+				</div>
+				<textarea name="short" data-ng-model="vm.proposal.short" id="short" class="form-control" cols="30" rows="3" placeholder="1-2 sentences that entice the reader to apply..." required></textarea>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="description">Description</label>
+				<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('description')"></i>
+				<div class="input-help alert alert-info" data-field="description" ng-show="vm.displayHelp.description">
+					Here’s where you can fully describe any useful background, and what you’re trying to accomplish by offering this paid proposal.
+				</div>
+				<!-- <textarea name="description" data-ng-model="vm.proposal.description" id="description" class="form-control" cols="30" rows="10" placeholder="A full description of the proposal"></textarea> -->
+				<textarea
+					name="description"
+					id="description"
+					class="form-control input-sm"
+					ui-tinymce="vm.tinymceOptions"
+					placeholder="A full description of the proposal"
+					ng-model="vm.proposal.description">
+				</textarea>
+			</div>
+
+			<br><br>
+			<div class="form-group" ng-if="vm.isAdmin|| vm.proposal.userIs.admin">
+				<label class="control-label" for="github">Github Repository</label>
+				<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('github')"></i>
+				<div class="input-help alert alert-info" data-field="github" ng-show="vm.displayHelp.github">Create a new Issue in your project's GitHub repository.<br> Make the title of the Issue the same as the title of this proposal.<br>Paste the link to the Issue in this field. When published, your proposal will link to the Issue so that people can ask questions via the comments section on the Issue in GitHub.
+				</div>
+				<input name="github" type="text" ng-model="vm.proposal.github" id="github" class="form-control" placeholder="Paste link to GitHub Issue">
+			</div>
+			<br><br>
+			<div class="row">
+				<div class="form-group">
+					<div class="col-sm-4 col-md-3">
+						<div class="form-group" show-errors>
+							<label class="control-label" for="location">Location</label>
+							<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('location')"></i>
+							<div class="input-help alert alert-info" data-field="location" ng-show="vm.displayHelp.location">
+								<p>Where is your office?</p>
+							</div>
+							<select name="location" ng-model="vm.proposal.location" id="location" class="form-control" required ng-options="v as v for v in vm.cities">
+								<option value="">Select Location</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br><br>
+			<div class="row">
+				<div class="form-group">
+					<div class="col-sm-12 col-md-12">
+						<div class="form-group" show-errors>
+							<label class="control-label" >On Site Requirements</label>
+							<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('onsite')"></i>
+							<div class="input-help alert alert-info" data-field="onsite" ng-show="vm.displayHelp.onsite">
+								<p>State whether you are OK NOT to work with the developer in-person, or if you need them to work with you in-person some, or most of the time.</p>
+							</div>
+							<div>
+							<label class="radio-inline">
+							<input type="radio" name="onsite" ng-model="vm.proposal.onsite" value="offsite">In-person work NOT required
+							</label>
+							<label class="radio-inline">
+							<input type="radio" name="onsite" ng-model="vm.proposal.onsite" value="mixed">Some in-person work required
+							</label>
+							<label class="radio-inline">
+							<input type="radio" name="onsite" ng-model="vm.proposal.onsite" value="onsite">In-person work required
+							</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br><br>
+
+			<div class="form-group">
+				<label class="control-label" for="skilllist">Required Skills (comma delimited list)</label>
+				<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('skilllist')"></i>
+				<div class="input-help alert alert-info" data-field="skilllist" ng-show="vm.displayHelp.skilllist">
+					List the skills that are necessary for the person working on this proposal to have. (e.g. JavaScript, CSS, WordPress, UX Design)
+				</div>
+				<input type="text" name="skilllist" ng-model="vm.proposal.skilllist" id="skilllist" class="form-control" placeholder="e.g. JavaScript, WordPress, CSS"></input>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="description">Acceptance Criteria</label>
+				<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('criteria')"></i>
+				<div class="input-help alert alert-info" data-field="criteria" ng-show="vm.displayHelp.criteria">
+					In this section, you need to clearly define everything that must be delivered and all criteria that must be met in order for you to be satisfied and ready to pay the developer.
+				</div>
+				<!-- <textarea name="criteria" data-ng-model="vm.proposal.criteria" id="criteria" class="form-control" cols="30" rows="10" placeholder="Proposal acceptance criteria"></textarea> -->
+				<textarea
+					name="criteria"
+					id="criteria"
+					class="form-control input-sm"
+					ui-tinymce="vm.tinymceOptions"
+					placeholder="A clear definition of everything that must be delivered to get paid for this proposal..."
+					ng-model="vm.proposal.criteria">
+				</textarea>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4 col-md-3">
+					<div class="form-group" show-errors>
+						<label class="control-label" for="earn">Fixed-Price Reward</label>
+						<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('reward')"></i>
+						<div class="input-help alert alert-info" data-field="reward" ng-show="vm.displayHelp.reward">
+							<p>To the best of your ability, estimate a fair price for the amount of work you think it should take a qualified developer to meet the acceptance criteria. It's best to over-estimate.</p>
+							<p>Right now, Code With Us proposals may be offered to a maximum of $10,000.</p>
+						</div>
+						<select name="earn" ng-model="vm.proposal.earn" id="earn" class="form-control" required ng-options="v as (v|currency) for v in [500,1000,1500,2000,2500,3000,3500,4000,4500,5000,5500,6000,6500,7000,7500,8000,8500,9000,9500,10000]">
+							<option value="">Select reward amount</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<br><br>
+			<div class="form-group">
+				<label class="control-label" for="description">Proposal Evaluation Criteria</label>
+				<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('evaluation')"></i>
+				<div class="input-help alert alert-info" data-field="evaluation" ng-show="vm.displayHelp.evaluation">
+					In this section, you must explicitly state the criteria you will use to score the proposals you receive and assign a developer. It is at your discretion which mandatory and weighted criteria you wish to use. Refer to <a href="http://www2.gov.bc.ca/gov/content/governments/services-for-government/bc-bid-resources/how-to-buy-services/procurement-process/pre-award/prepare-solicitation-documents/mandatory-and-weighted-criteria">the Government of B.C.'s information on procurement</a> for guidance.
+				</div>
+				<!-- <textarea name="criteria" data-ng-model="vm.proposal.evaluation" id="criteria" class="form-control" cols="30" rows="10" placeholder="Evaluation criteria"></textarea> -->
+				<textarea
+					name="evaluation"
+					id="evaluation"
+					class="form-control input-sm"
+					ui-tinymce="vm.tinymceOptions"
+					placeholder="An explicit definition of the criteria you will use to score proposals..."
+					ng-model="vm.proposal.evaluation">
+				</textarea>
+			</div>
+
+			<div class="form-group" ng-if="vm.isAdmin|| vm.proposal.userIs.admin">
+				<label class="control-label" for="proposalEmail">Email to Receive Proposals</label>
+				<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('proposalEmail')"></i>
+				<div class="input-help alert alert-info" data-field="proposalEmail" ng-show="vm.displayHelp.proposalEmail">
+					Enter the email address where you want people to send their proposals.
+				</div>
+				<input name="proposalEmail" type="text" ng-model="vm.proposal.proposalEmail" id="proposalEmail" class="form-control" placeholder="Enter email address">
+			</div>
+
+			<div class="row">
+
+				<div class="col-sm-4">
+					<div class="form-group" show-errors>
+						<label class="control-label" for="deadline">Proposal Deadline</label>
+						<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('deadline')"></i>
+						<div class="input-help alert alert-info" data-field="deadline" ng-show="vm.displayHelp.deadline">
+	              			<p>Choose a <b>cutoff date</b> for receiving proposals. (Time of day is fixed at 16:00 Pacific Time.)</p>
+	              			<p>The longer lead time you give, the more proposals you are likely to get. A deadline at least <b>5 days</b> from when you publish is a good aim.</p>
+							<p>Make sure you have your <b>proposal contact</b> lined up to respond to questions on the GitHub Issue in a timely manner, from the time you publish the proposal right up to the cutoff time.</p>
+						</div>
+						<div>
+						<input type="date" name="deadline" required ng-model="vm.proposal.deadline"/>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group" show-errors>
+						<label class="control-label" for="assignment">Assignment Date</label>
+						<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('assignment')"></i>
+						<div class="input-help alert alert-info" data-field="assignment" ng-show="vm.displayHelp.assignment">
+							Choose a date that you will commit to assigning someone to this proposal (dependent, of course, on at least one of the proposals meeting your minimum requirements). (Time of day is fixed at 16:00 Pacific Time.)
+						</div>
+						<div>
+						<input type="date" name="assignment" required ng-model="vm.proposal.assignment"/>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group" show-errors>
+						<label class="control-label" for="start">Proposed Start Date</label>
+						<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('start')"></i>
+						<div class="input-help alert alert-info" data-field="start" ng-show="vm.displayHelp.start">
+							Choose the date you'd like the developer to begin working.
+						</div>
+						<div>
+						<input type="date" name="start" ng-model="vm.proposal.start"/>
+						</div>
+					</div>
+				</div>
+<!--
+				<div class="col-sm-3">
+					<div class="form-group" show-errors>
+						<label class="control-label" for="deadline_date">Proposal Deadline - Date</label>
+						<input type="date" format="ddMMyy"/>
+						<i class="glyphicon glyphicon-question-sign input-help-source" ng-click="vm.toggleHelp('deadline')"></i>
+						<div class="input-help alert alert-info" data-field="deadline" ng-show="vm.displayHelp.deadline">
+							Choose a deadline for receiving proposals. The longer lead time, the more proposals you are likely to get.
+							A deadline that's at least 5 days after you publish is a good guideline. A
+							lso, it's possible that you may have to field questions that come in at the last minute - so choose a time of day when you'll be able to respond.
+						</div>
+						<div class="input-group">
+							<input type="text" class="form-control" name="deadline_date" id="deadline_date" uib-datepicker-popup="yyyy-MM-dd" ng-model="vm.proposal.deadline_date" is-open="vm.showdate" required close-text="Close" placeholder="Date"/>
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-default" ng-click="vm.showdate=1"><i class="glyphicon glyphicon-calendar"></i></button>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="form-group" show-errors>
+						<label class="control-label" for="deadline_time">Proposal Deadline - Time</label>
+						<div class="input-group">
+							<input type="text" class="form-control" name="deadline_time" id="deadline_time" ng-model="vm.proposal.deadline_time" required placeholder="Time" />
+							<span class="input-group-addon">
+								PST
+							</span>
+						</div>
+					</div>
+				</div>
+ -->
+ 			</div>
+		</fieldset>
+	</div>
+	</div>
+	<div class="row form-foot">
+	<div class="col-sm-12 col-form-buttons foot text-right">
+			<div class="btn-group">
+				<a href="javascript:void(0);" uib-tooltip="Save your work anytime. You can always come back later." class="btn btn-primary" ng-click="vm.saveme()">
+					<i class="glyphicon glyphicon-save"></i> Save
+				</a>
+
+				<a ng-if="vm.editing" class="btn btn-default" ui-sref="proposals.view({proposalId:vm.proposal.code})" title="Cancel">
+					<i class="glyphicon glyphicon-fast-backward"></i> Cancel
+				</a>
+				<a ng-if="!vm.editing && !vm.projectId" class="btn btn-default" ui-sref="proposals.list" title="Cancel">
+					<i class="glyphicon glyphicon-fast-backward"></i> Cancel
+				</a>
+				<a ng-if="!vm.editing && vm.projectId" class="btn btn-default" ui-sref="projects.view({projectId:vm.projectId})" title="Cancel">
+					<i class="glyphicon glyphicon-fast-backward"></i> Cancel
+				</a>
+				<a href="javascript:void(0);" ng-if="vm.editing" class="btn btn-default" ng-click="vm.remove()" title="Remove">
+					<i class="glyphicon glyphicon-trash"></i> Remove
+				</a>
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
+
