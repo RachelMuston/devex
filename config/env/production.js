@@ -3,21 +3,85 @@
 var fs = require('fs');
 
 module.exports = {
-  sessionSecret: process.env.SESSION_SECRET || 'super amazing secret',
+  app: {
+    title: 'GCDevExchange',
+    description: 'Better ways for government and developers to work together',
+    keywords: 'developer, government, codewithus, agile, digitial service',
+    domain: 'https://gcdevexchange.org'
+  },
+  port: process.env.PORT || 3000,
+  host: process.env.HOST || '0.0.0.0',
+  sessionCookie: {
+    // session expiration is set by default to 24 hours
+    maxAge: 24 * (60 * 60 * 1000),
+    // httpOnly flag makes sure the cookie is only accessed
+    // through the HTTP protocol and not JS/browser
+    httpOnly: true,
+    // secure cookie should be turned to true to provide additional
+    // layer of security so that the cookie is set only when working
+    // in HTTPS mode.
+    secure: true
+  },
+  sessionSecret: process.env.SESSION_SECRET || 'gcdevexchange-secret',
+  sessionKey: 'sessionId',
+  sessionCollection: 'sessions',
+  // Lusca config
+  csrf: {
+    csrf: false,
+    csp: false,
+    xframe: 'SAMEORIGIN',
+    p3p: 'ABCDEF',
+    xssProtection: true
+  },
+  logo: 'modules/core/client/img/brand/logo.png',
+  favicon: 'modules/core/client/img/brand/favicon.ico',
+  uploads: {
+    diskStorage: {
+      destination: function (req, file, cb) {
+        cb (null, 'public/uploads/')
+      },
+      filename: function (req, file, cb) {
+        var datetimestamp = Date.now();
+        // console.log ('file.originalname', file.originalname);
+        cb (null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1])
+      }
+    },
+    profileUpload: {
+      dest: 'public/uploads/', // Profile upload destination path
+      display: 'uploads/',
+      // dest: 'modules/users/client/img/profile/uploads/', // Profile upload destination path
+      limits: {
+        fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
+      }
+    },
+    fileUpload: {
+      dest: 'public/uploads/', // File upload destination path
+      display: 'uploads/',
+      limits: {
+        fileSize: 3 * 1024 * 1024 // Max file size in bytes (3 MB)
+      }
+    }
+  },
+  shared: {
+    owasp: {
+      allowPassphrases: true,
+      maxLength: 128,
+      minLength: 10,
+      minPhraseLength: 20,
+      minOptionalTestsToPass: 4
+    }
+  },
   secure: {
     ssl: true,
     privateKey: './config/sslcerts/key.pem',
     certificate: './config/sslcerts/cert.pem',
-    caBundle: './config/sslcerts/cabundle.crt'
+    caBundle: './config/sslcerts/chain.pem'
   },
-  port: process.env.PORT || 3000,
-  // Binding to 127.0.0.1 is safer in production.
-  host: process.env.HOST || '0.0.0.0',
   db: {
     uri: process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://' + (process.env.MONGODB_SERVICE_HOST || process.env.DB_DEVEX_PORT_27017_TCP_ADDR || 'localhost') + '/' + (process.env.MONGODB_DATABASE || 'mean'),
     options: {
       user: process.env.MONGODB_USER || '',
-      pass: process.env.MONGODB_PASSWORD || ''
+      pass: process.env.MONGODB_PASSWORD || '',
       /**
         * Uncomment to enable ssl certificate based authentication to mongodb
         * servers. Adjust the settings below for your specific certificate
@@ -90,22 +154,13 @@ module.exports = {
     }
   },
   seedDB: {
-    seed: process.env.MONGO_SEED === 'true',
+    seed: true,
     options: {
       logResults: process.env.MONGO_SEED_LOG_RESULTS !== 'false',
-      seedUser: {
-        username: process.env.MONGO_SEED_USER_USERNAME || 'user',
-        provider: 'local',
-        email: process.env.MONGO_SEED_USER_EMAIL || 'user@localhost.com',
-        firstName: 'User',
-        lastName: 'Local',
-        displayName: 'User Local',
-        roles: ['user']
-      },
       seedAdmin: {
-        username: process.env.MONGO_SEED_ADMIN_USERNAME || 'admin',
+        username: 'admin',
         provider: 'local',
-        email: process.env.MONGO_SEED_ADMIN_EMAIL || 'admin@localhost.com',
+        email: 'admin@localhost.com',
         firstName: 'Admin',
         lastName: 'Local',
         displayName: 'Admin Local',
