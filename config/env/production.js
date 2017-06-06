@@ -4,7 +4,7 @@ var fs = require('fs');
 
 module.exports = {
   app: {
-    title: 'GCDevExchange',
+    title: 'GCDevExchange - The GC Developer\'s Exchange',
     description: 'Better ways for government and developers to work together',
     keywords: 'developer, government, codewithus, agile, digitial service',
     domain: 'https://gcdevexchange.org'
