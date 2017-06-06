@@ -82,7 +82,7 @@ module.exports = {
       minOptionalTestsToPass: 1
     }
   },
-  livereload: true,
+  // livereload: true,
   seedDB: {
     seed: process.env.MONGO_SEED === 'true',
     options: {
