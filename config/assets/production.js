@@ -32,7 +32,10 @@ module.exports = {
         // endbower
       ]
     },
-    css: 'public/dist/application*.min.css',
+    css: [
+        'public/dist/application*.min.css',
+        'modules/core/client/css/style.css'
+    ],
     js: 'public/dist/application*.min.js'
   }
 };
