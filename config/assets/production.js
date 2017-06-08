@@ -34,6 +34,7 @@ module.exports = {
     },
     css: [
         'public/dist/application*.min.css',
+        'public/dist/theme.min.css',
         'modules/core/client/css/style.css'
     ],
     js: 'public/dist/application*.min.js'

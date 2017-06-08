@@ -10,6 +10,10 @@
   max-width: 100% !important;
 }
 
+#wb-lng {
+    padding: 10px 0 0 0;
+}
+
 .cover, #themenav, .section-heading-container, .section--engagement, .section--organizing, .section--talent,
 .section--design, .section--foundations, .section--yourthoughts {
   transition: all 0.5s ease;
