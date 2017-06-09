@@ -19,7 +19,7 @@
 </div>
 
 
-<table class="wb-tables table table-striped table-hover table-bordered" ng-repeat="program in vm.programs">
+<table class="wb-tables table table-striped table-hover table-bordered" >
     <thead>
         <tr class="active">
             <th>Program Title</th>
@@ -27,11 +27,8 @@
             <th>Department</th>
         </tr>
     </thead>
-    <tbody id="tbodyMain">
-
-
+    <tbody id="tbodyMain" ng-repeat="program in vm.programs">
             <tr role="row"><td><a ui-sref="programs.view({ programId: program.code })" ng-bind="program.title"></a></td><td><p ng-bind="program.short"></p></td><td><p ng-bind="program.owner"></p></td></tr>
-
     </tbody>
 </table>
 
