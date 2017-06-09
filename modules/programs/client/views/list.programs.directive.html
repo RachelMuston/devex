@@ -27,8 +27,12 @@
             <th>Department</th>
         </tr>
     </thead>
-    <tbody id="tbodyMain" ng-repeat="program in vm.programs">
-            <tr role="row"><td><a ui-sref="programs.view({ programId: program.code })" ng-bind="program.title"></a></td><td><p ng-bind="program.short"></p></td><td><p ng-bind="program.owner"></p></td></tr>
+    <tbody id="tbodyMain">
+        <tr role="row" ng-repeat="program in vm.programs">
+            <td><a ui-sref="programs.view({ programId: program.code })" ng-bind="program.title"></a></td>
+            <td><p ng-bind="program.short"></p></td>
+            <td><p ng-bind="program.owner"></p></td>
+        </tr>
     </tbody>
 </table>
 
