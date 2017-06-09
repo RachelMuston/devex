@@ -9,7 +9,12 @@
   </div>
 </div>
 
-<h1>Government of Canada Developers Exchange</h1>
+<h1>All Programs</h1>
+<div>The following table contains a list of all programs participating in GC DevEx beta. Filter the list by typing the name of a team or organization or sort a column using the arrows.
+    <br /><br />
+
+This is not a full list of all GC programs. A full list of all GC services or information is available on canada.ca.
+</div>
 <div class="card card-flat" ng-class="{'card-greyed': !program.isPublished}" ng-repeat="program in vm.programs">
 
   <div class="card-header" ng-if="vm.isAdmin || program.userIs.admin" style="text-align: right">
@@ -39,7 +44,7 @@
       </div>
       <div class="col-xs-9 col-sm-10" style="margin-left: 0px;">
         <h3 style="font-size: 17px; margin-top: 5px; font-family: Lato;">
-          <a ui-sref="programs.view({ programId: program.code })" ng-bind="program.title"></a>
+          <a ui-sref="programs.view({ programId: program.code })" ng-bind="program.title"></a>test
         </h3>
         <p ng-bind="program.short"></p>
       </div>
