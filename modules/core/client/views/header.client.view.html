@@ -10,12 +10,16 @@
 <header role="banner">
   <div id="wb-bnr" class="container">
     <div class="row">
-      <div class="brand col-xs-8 col-sm-9 col-md-10">
+      <div class="brand col-xs-8 col-sm-9 col-md-9">
           <a href="/"><object type="image/svg+xml" tabindex="-1" data="https://sboots.github.io/74181e2edb120a6c00ee62010459328a//assets/themes/wet-boew/assets/sig-blk-en.svg"></object><span class="wb-inv"> Government of Canada</span></a>
       </div>
-      <div class="brand col-xs-4 col-sm-3 col-md-2">
-          <a class="pull-right" href="#">Français</a>
-          <button class="btn btn-primary" id="beta" title="The term “beta” in software development refers to a development phase within its lifecycle that provides opportunities to conduct proofing and testing often with users from outside of the project team (general public).  This allows the project team to adjust the product according to new test data. The distribution of a beta release can be as limiting or vast as project resources allow. The goal of a beta release is to garner feedback on, but not exclusively to, the design, process, and demand by collecting user experience comments and statistics. A beta is ephemeral in nature, and moves into official production status once the proofing and testing is successful.">BETA</button>
+      <div class="brand col-xs-4 col-sm-3 col-md-3">
+        <ul class="list-inline margin-bottom-none">
+          <li class="btn btn-primary" id="beta" title="The term “beta” in software development refers to a development phase within its lifecycle that provides opportunities to conduct proofing and testing often with users from outside of the project team (general public).  This allows the project team to adjust the product according to new test data. The distribution of a beta release can be as limiting or vast as project resources allow. The goal of a beta release is to garner feedback on, but not exclusively to, the design, process, and demand by collecting user experience comments and statistics. A beta is ephemeral in nature, and moves into official production status once the proofing and testing is successful.">BETA</li>
+          <li><a href="/authentication/government">Sign Up</a></li>
+          <li><a href="/authentication/signin">Sign In</a></li>
+          <li><a lang="fr" href="#">Français</a></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -74,4 +78,4 @@
 </div>
 -->
 
-<script>$(function () { Tippy('#beta'); });</script>
+<script>$(function () { Tippy('#beta', { size: 'big' }); });</script>
