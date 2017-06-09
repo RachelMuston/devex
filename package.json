@@ -67,6 +67,7 @@
     "replace-ext": "~1.0.0",
     "serve-favicon": "~2.3.0",
     "socket.io": "^1.4.8",
+    "tippy.js": "^0.16.3",
     "validator": "~6.0.0",
     "vinyl": "~2.0.1",
     "winston": "^2.2.0",

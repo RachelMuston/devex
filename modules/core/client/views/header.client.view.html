@@ -10,13 +10,12 @@
 <header role="banner">
   <div id="wb-bnr" class="container">
     <div class="row">
-      <div class="brand col-xs-8 col-sm-9 col-md-6" style="width:100%">
-          <span style="float: right;"><a href="#">Français</a></span>
-          <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left" style="float:right;">BETA</button>
-        <a href="/">
-           
-          <object type="image/svg+xml" tabindex="-1" data="https://sboots.github.io/74181e2edb120a6c00ee62010459328a//assets/themes/wet-boew/assets/sig-blk-en.svg"></object><span class="wb-inv"> Government of Canada</span></a>
-      
+      <div class="brand col-xs-8 col-sm-9 col-md-10">
+          <a href="/"><object type="image/svg+xml" tabindex="-1" data="https://sboots.github.io/74181e2edb120a6c00ee62010459328a//assets/themes/wet-boew/assets/sig-blk-en.svg"></object><span class="wb-inv"> Government of Canada</span></a>
+      </div>
+      <div class="brand col-xs-4 col-sm-3 col-md-2">
+          <a class="pull-right" href="#">Français</a>
+          <button class="btn btn-primary" id="beta" title="Definition of 'beta' goes here.">BETA</button>
       </div>
     </div>
   </div>
@@ -75,8 +74,4 @@
 </div>
 -->
 
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
+<script>$(function () { Tippy('#beta'); });</script>
