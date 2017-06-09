@@ -1,60 +1,69 @@
 <div class="row list-head">
-  <div class="col-sm-7">
-    <h2 class="list-page-hide">Government Partners</h2>
-  </div>
-  <div class="col-sm-5 col-form-buttons text-right">
-    <button ng-if="vm.userCanAdd" class="btn btn-default " ui-sref="programadmin.create()" title="New">
-      <i class="glyphicon glyphicon-plus"></i> New Program
-    </button>
-  </div>
+    <div class="col-sm-7">
+        <h2 class="list-page-hide">Government Partners</h2>
+    </div>
+    <div class="col-sm-5 col-form-buttons text-right">
+        <button ng-if="vm.userCanAdd" class="btn btn-default " ui-sref="programadmin.create()" title="New">
+            <i class="glyphicon glyphicon-plus"></i> New Program
+        </button>
+    </div>
 </div>
 
 <h1>All Programs</h1>
-<div>The following table contains a list of all programs participating in GC DevEx beta. Filter the list by typing the name of a team or organization or sort a column using the arrows.
+<div>
+    The following table contains a list of all programs participating in GC DevEx beta. Filter the list by typing the name of a team or organization or sort a column using the arrows.
     <br /><br />
 
-This is not a full list of all GC programs. A full list of all GC services or information is available on canada.ca.
+    This is not a full list of all GC programs. A full list of all GC services or information is available on <a href="https://www.canada.ca/en/services.html">canada.ca</a>.
+    <br />
 </div>
-<div class="card card-flat" ng-class="{'card-greyed': !program.isPublished}" ng-repeat="program in vm.programs">
 
-  <div class="card-header" ng-if="vm.isAdmin || program.userIs.admin" style="text-align: right">
-    <span ng-if="vm.isAdmin || program.userIs.admin" class="label label-primary">Admin</span>
-    &nbsp;
-    <span ng-if="program.userIs.member && !program.userIs.admin" class="label label-primary">Member</span>
-    &nbsp;
-    <span ng-if="program.userIs.request" class="label label-primary" uib-tooltip="Your membership request is pending approval">Pending Member</span>
-    &nbsp;
-    <span ng-if="!program.isPublished" class="label-danger" ><i class="fa fa-exclamation-triangle"></i> UNPUBLISHED</span>
-    &nbsp;
-    <a ng-if="(vm.isAdmin || program.userIs.admin) && program.isPublished" href="javascript:void(0);" ng-click="vm.publish(program, false)" ng-click="$event.stopPropagation()" uib-tooltip="Unpublish"><i class="glyphicon glyphicon-ban-circle"></i></a>
-    &nbsp;
-    <a ng-if="(vm.isAdmin || program.userIs.admin) && !program.isPublished" href="javascript:void(0);" ng-click="vm.publish(program, true)" ng-click="$event.stopPropagation()" uib-tooltip="Publish"><i class="glyphicon glyphicon-check"></i></a>
-    &nbsp;
-    <a ng-if="vm.isGov && !program.userIs.member && !program.userIs.request" href="javascript:void(0);" ng-click="vm.request(program)" ng-click="$event.stopPropagation()" uib-tooltip="Request Membership"><i class="glyphicon glyphicon-user"></i></a>
-    &nbsp;
-    <a ng-if="vm.isAdmin || program.userIs.admin" href="javascript:void(0);" ui-sref="programadmin.edit({ programId: program.code })" ng-click="$event.stopPropagation()" uib-tooltip="Edit"><i class="glyphicon glyphicon-edit"></i></a>
-  </div>
 
-  <div class="card-block" style="padding: 10px;">
-    <div class="row">
-      <div class="col-xs-3 col-sm-2" style="text-align: center; padding: 5px;">
-        <div class="card-img">
-          <img class="img-rounded" style="height: 60px;" src="/{{program.logo}}"/>
+<table class="wb-tables table table-striped table-hover table-bordered">
+    <thead>
+        <tr class="active">
+            <th>Reference number</th>
+            <th>Establishment name</th>
+            <th>Province</th>
+            <th>Inspection start date</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody id="tbodyMain">
+
+
+
+
+
+
+        <div class="card card-flat" ng-class="{'card-greyed': !program.isPublished}" ng-repeat="program in vm.programs">
+
+            <div class="card-header" ng-if="vm.isAdmin || program.userIs.admin" style="text-align: right">
+                <span ng-if="vm.isAdmin || program.userIs.admin" class="label label-primary">Admin</span>
+                &nbsp;
+                <span ng-if="program.userIs.member && !program.userIs.admin" class="label label-primary">Member</span>
+                &nbsp;
+                <span ng-if="program.userIs.request" class="label label-primary" uib-tooltip="Your membership request is pending approval">Pending Member</span>
+                &nbsp;
+                <span ng-if="!program.isPublished" class="label-danger"><i class="fa fa-exclamation-triangle"></i> UNPUBLISHED</span>
+                &nbsp;
+                <a ng-if="(vm.isAdmin || program.userIs.admin) && program.isPublished" href="javascript:void(0);" ng-click="vm.publish(program, false)" ng-click="$event.stopPropagation()" uib-tooltip="Unpublish"><i class="glyphicon glyphicon-ban-circle"></i></a>
+                &nbsp;
+                <a ng-if="(vm.isAdmin || program.userIs.admin) && !program.isPublished" href="javascript:void(0);" ng-click="vm.publish(program, true)" ng-click="$event.stopPropagation()" uib-tooltip="Publish"><i class="glyphicon glyphicon-check"></i></a>
+                &nbsp;
+                <a ng-if="vm.isGov && !program.userIs.member && !program.userIs.request" href="javascript:void(0);" ng-click="vm.request(program)" ng-click="$event.stopPropagation()" uib-tooltip="Request Membership"><i class="glyphicon glyphicon-user"></i></a>
+                &nbsp;
+                <a ng-if="vm.isAdmin || program.userIs.admin" href="javascript:void(0);" ui-sref="programadmin.edit({ programId: program.code })" ng-click="$event.stopPropagation()" uib-tooltip="Edit"><i class="glyphicon glyphicon-edit"></i></a>
+            </div>
+            <tr role="row"><td>16DB68C7</td><td><a ui-sref="programs.view({ programId: program.code })" ng-bind="program.title"></a></td><td><p ng-bind="program.short"></p></td><td class="sorting_1">2017-05-08</td><td><a href="fullReportCard-en.html?lang=en&amp;insNumber=201705001">Compliant</a></td></tr>
+            <!--<div class="row">
+              <div class="label-list">
+                <span class="label label-info" ng-repeat="code in program.tags">{{code}}</span>
+              </div>
+            </div>-->
         </div>
-      </div>
-      <div class="col-xs-9 col-sm-10" style="margin-left: 0px;">
-        <h3 style="font-size: 17px; margin-top: 5px; font-family: Lato;">
-          <a ui-sref="programs.view({ programId: program.code })" ng-bind="program.title"></a>test
-        </h3>
-        <p ng-bind="program.short"></p>
-      </div>
-    </div>
-    <!--<div class="row">
-      <div class="label-list">
-        <span class="label label-info" ng-repeat="code in program.tags">{{code}}</span>
-      </div>
-    </div>-->
-  </div>
+    </tbody>
+</table>
 
-</div>
+
 
