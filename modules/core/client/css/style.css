@@ -19,26 +19,6 @@
   transition: all 0.5s ease;
 }
 
-.report-image-preloader {
-  background-image: url("../img/v2/horizon-mosaic.png");
-  background-image: url("../img/v2/hub-ottawa-mosaic.png");
-  background-image: url("../img/v2/calgary-mosaic.png");
-  background-image: url("../img/v2/pei-startupzone-mosaic.png");
-  background-image: url("../img/v2/whiteboard-mosaic-9.png");
-  background-image: url("../img/v2/gds-mosaic.png");
-  background-image: url("../img/v2/ottawa-mosaic.png");
-  background-image: url("../img/v2/op3-cover.png");
-  background-image: url("../img/v2/simple--banner--engagment.png");
-  background-image: url("../img/v2/simple--banner--organizing.png");
-  background-image: url("../img/v2/simple--banner--talent.png");
-  background-image: url("../img/v2/simple--banner--foundations.png");
-  background-image: url("../img/v2/simple--banner--yourthoughts.png");
-  background-image: url("../img/v2/simple--banner--design.png");
-  display: block;
-  width: 0px;
-  height: 0px;
-}
-
 #themenav .affix li:nth-of-type(1) .nav-link:hover, #themenav .affix li:nth-of-type(1) .nav-link:focus, #themenav .affix li:nth-of-type(1) .nav-link:active {
   background-color: #010101;
 }

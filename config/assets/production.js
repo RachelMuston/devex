@@ -11,7 +11,6 @@ module.exports = {
         'public/lib/ng-img-crop/compile/minified/ng-img-crop.css',
         'public/lib/font-awesome/css/font-awesome.min.css',
         'public/lib/simple-line-icons/css/simple-line-icons.css',
-        'public/lib/tippy/tippy.css',
         // endbower
       ],
       js: [
@@ -30,7 +29,6 @@ module.exports = {
         'public/lib/ng-file-upload/ng-file-upload.min.js',
         'public/lib/ng-img-crop/compile/minified/ng-img-crop.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
-        'public/lib/tippy/tippy.min.js',
         // endbower
       ]
     },
