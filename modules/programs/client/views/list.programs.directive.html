@@ -15,11 +15,11 @@
     <br /><br />
 
     This is not a full list of all GC programs. A full list of all GC services or information is available on <a href="https://www.canada.ca/en/services.html">canada.ca</a>.
-    <br />
+    <br /><br />
 </div>
 
 
-<table class="wb-tables table table-striped table-hover table-bordered">
+<table class="wb-tables table table-striped table-hover table-bordered" ng-repeat="program in vm.programs">
     <thead>
         <tr class="active">
             <th>Reference number</th>
@@ -32,36 +32,8 @@
     <tbody id="tbodyMain">
 
 
+            <tr role="row"><td><a ui-sref="programs.view({ programId: program.code })" ng-bind="program.title"></a></td><td><p ng-bind="program.short"></p></td><td class="sorting_1">2017-05-08</td><td><a href="fullReportCard-en.html?lang=en&amp;insNumber=201705001">Compliant</a></td></tr>
 
-
-
-
-        <div class="card card-flat" ng-class="{'card-greyed': !program.isPublished}" ng-repeat="program in vm.programs">
-
-            <div class="card-header" ng-if="vm.isAdmin || program.userIs.admin" style="text-align: right">
-                <span ng-if="vm.isAdmin || program.userIs.admin" class="label label-primary">Admin</span>
-                &nbsp;
-                <span ng-if="program.userIs.member && !program.userIs.admin" class="label label-primary">Member</span>
-                &nbsp;
-                <span ng-if="program.userIs.request" class="label label-primary" uib-tooltip="Your membership request is pending approval">Pending Member</span>
-                &nbsp;
-                <span ng-if="!program.isPublished" class="label-danger"><i class="fa fa-exclamation-triangle"></i> UNPUBLISHED</span>
-                &nbsp;
-                <a ng-if="(vm.isAdmin || program.userIs.admin) && program.isPublished" href="javascript:void(0);" ng-click="vm.publish(program, false)" ng-click="$event.stopPropagation()" uib-tooltip="Unpublish"><i class="glyphicon glyphicon-ban-circle"></i></a>
-                &nbsp;
-                <a ng-if="(vm.isAdmin || program.userIs.admin) && !program.isPublished" href="javascript:void(0);" ng-click="vm.publish(program, true)" ng-click="$event.stopPropagation()" uib-tooltip="Publish"><i class="glyphicon glyphicon-check"></i></a>
-                &nbsp;
-                <a ng-if="vm.isGov && !program.userIs.member && !program.userIs.request" href="javascript:void(0);" ng-click="vm.request(program)" ng-click="$event.stopPropagation()" uib-tooltip="Request Membership"><i class="glyphicon glyphicon-user"></i></a>
-                &nbsp;
-                <a ng-if="vm.isAdmin || program.userIs.admin" href="javascript:void(0);" ui-sref="programadmin.edit({ programId: program.code })" ng-click="$event.stopPropagation()" uib-tooltip="Edit"><i class="glyphicon glyphicon-edit"></i></a>
-            </div>
-            <tr role="row"><td>16DB68C7</td><td><a ui-sref="programs.view({ programId: program.code })" ng-bind="program.title"></a></td><td><p ng-bind="program.short"></p></td><td class="sorting_1">2017-05-08</td><td><a href="fullReportCard-en.html?lang=en&amp;insNumber=201705001">Compliant</a></td></tr>
-            <!--<div class="row">
-              <div class="label-list">
-                <span class="label label-info" ng-repeat="code in program.tags">{{code}}</span>
-              </div>
-            </div>-->
-        </div>
     </tbody>
 </table>
 
