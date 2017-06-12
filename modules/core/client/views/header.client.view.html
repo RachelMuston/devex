@@ -7,7 +7,7 @@
     </li>
   <li class="wb-slc"><a class="wb-sl" rel="alternate" href="?wbdisable=true">Switch to basic HTML version</a></li>
 </ul>
-<header role="banner">
+<header role="banner" ng-controller="HeaderController as vm">
   <div id="wb-bnr" class="container">
     <div class="row">
       <div class="brand col-xs-8">
@@ -23,17 +23,27 @@
       </div>
     </div>
   </div>
-</header>
 
-<!-- Page Navigation -->
-<div id="themenav">
+  <div id="themenav">
     <ul class="nav scroll dragscroll secondary affix-top" data-spy="affix" data-offset-top="150">
-        <li><a class="nav-link" href="/">Home</a></li>
-        <li><a class="nav-link" href="/programs">Teams</a></li>
-        <li><a class="nav-link" href="/projects">Projects</a></li>
-        <li><a class="nav-link" href="/opportunities">Opportunities</a></li>
+      <li><a class="nav-link" href="/programs">Teams</a></li>
+      <li><a class="nav-link" href="/projects">Projects</a></li>
+      <li><a class="nav-link" href="/opportunities">Opportunities</a></li>
     </ul>
-</div>
+  </div>
+
+  <nav role="navigation" id="wb-bc" class="" property="breadcrumb">
+    <h2 class="wb-inv">You are here:</h2>
+    <div class="container">
+      <div class="row">
+        <ol class="breadcrumb">
+          <li ng-if="!isHomePage()"><a href="/">Home</a></li>
+          <li><a href="{{step.ncyBreadcrumbLink}}" ncy-breadcrumb-last>{{step.ncyBreadcrumbLabel}}</a></li>
+        </ol>
+      </div>
+    </div>
+  </nav>
+</header>
 
 <section id="beta-definition" class="mfp-hide modal-dialog modal-content overlay-def">
   <header class="modal-header">

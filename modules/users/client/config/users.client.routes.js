@@ -67,6 +67,9 @@
           usercount: function (UsersService) {
             return UsersService.countUsers ().then (function (o) {return o.count});
           }
+        },
+        ncyBreadcrumb: {
+          label: 'Authentication'
         }
       })
       .state('authentication.gov', {
@@ -76,6 +79,9 @@
         controllerAs: 'vm',
         data: {
           pageTitle: 'Government'
+        },
+        ncyBreadcrumb: {
+          label: 'Government'
         }
       })
       .state('authentication.signinadmin', {
@@ -85,6 +91,9 @@
         controllerAs: 'vm',
         data: {
           pageTitle: 'Signin'
+        },
+        ncyBreadcrumb: {
+          label: 'Signin'
         }
       })
      .state('signup', {
@@ -94,6 +103,9 @@
         controllerAs: 'vm',
         data: {
           pageTitle: 'Signup'
+        },
+        ncyBreadcrumb: {
+          label: 'Signup'
         }
       })
       .state('authentication.signin', {
@@ -103,6 +115,9 @@
         controllerAs: 'vm',
         data: {
           pageTitle: 'Signin'
+        },
+        ncyBreadcrumb: {
+          label: 'Signin'
         }
       })
       .state('password', {

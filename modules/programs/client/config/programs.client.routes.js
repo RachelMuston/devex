@@ -29,10 +29,10 @@
 			url: '',
 			templateUrl: '/modules/programs/client/views/list-programs.client.view.html',
 			data: {
-				pageTitle: 'Programs List'
+				pageTitle: 'Teams List'
 			},
 			ncyBreadcrumb: {
-				label: 'All programs'
+				label: 'All teams'
 			},
 			resolve: {
 				programs: function ($stateParams, ProgramsService) {
