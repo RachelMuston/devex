@@ -14,30 +14,30 @@
   width: 100%;
 }
 
-.themenav .affix li:nth-of-type(1) .nav-link:hover,
-.themenav .affix li:nth-of-type(1) .nav-link:focus,
-.themenav .affix li:nth-of-type(1) .nav-link:active {
-  background-color: #010101;
+.themenav li:nth-of-type(1) .nav-link:hover,
+.themenav li:nth-of-type(1) .nav-link:focus,
+.themenav li:nth-of-type(1) .nav-link:active {
+  background-color: #010101 !important;
 }
-.themenav .affix li:nth-of-type(2) .nav-link:hover,
-.themenav .affix li:nth-of-type(2) .nav-link:focus,
-.themenav .affix li:nth-of-type(2) .nav-link:active {
-  background-color: #251e1e;
+.themenav li:nth-of-type(2) .nav-link:hover,
+.themenav li:nth-of-type(2) .nav-link:focus,
+.themenav li:nth-of-type(2) .nav-link:active {
+  background-color: #5a230c !important;
 }
-.themenav .affix li:nth-of-type(3) .nav-link:hover,
-.themenav .affix li:nth-of-type(3) .nav-link:focus,
-.themenav .affix li:nth-of-type(3) .nav-link:active {
-  background-color: #1d2f21;
+.themenav li:nth-of-type(3) .nav-link:hover,
+.themenav li:nth-of-type(3) .nav-link:focus,
+.themenav li:nth-of-type(3) .nav-link:active {
+  background-color: #890743 !important;
 }
-.themenav .affix li:nth-of-type(4) .nav-link:hover,
-.themenav .affix li:nth-of-type(4) .nav-link:focus,
-.themenav .affix li:nth-of-type(4) .nav-link:active {
-  background-color: #890743;
+.themenav li:nth-of-type(4) .nav-link:hover,
+.themenav li:nth-of-type(4) .nav-link:focus,
+.themenav li:nth-of-type(4) .nav-link:active {
+  background-color: #1d2f21 !important;
 }
-.themenav .affix li:nth-of-type(5) .nav-link:hover,
-.themenav .affix li:nth-of-type(5) .nav-link:focus,
-.themenav .affix li:nth-of-type(5) .nav-link:active {
-  background-color: #5a230c;
+.themenav li:nth-of-type(5) .nav-link:hover,
+.themenav li:nth-of-type(5) .nav-link:focus,
+.themenav li:nth-of-type(5) .nav-link:active {
+  background-color: #251e1e !important;
 }
 
 .themenav {
@@ -157,22 +157,4 @@
   z-index: 9999 !important;
   -webkit-box-shadow: 0px 9px 9px -5px rgba(0, 0, 0, 0.56);
   -moz-box-shadow: 0px 9px 9px -5px rgba(0, 0, 0, 0.56);
-}
-.themenav .affix .nav-link:hover.section--engagement, .themenav .affix .nav-link:focus.section--engagement, .themenav .affix .nav-link:active.section--engagement, .themenav .affix .nav-link .nav-link.section--engagement, .themenav .affix li.active:hover.section--engagement, .themenav .affix li.active:focus.section--engagement, .themenav .affix li.active:active.section--engagement, .themenav .affix li.active .nav-link.section--engagement {
-  background-color: #110b0a;
-}
-.themenav .affix .nav-link:hover.section--organizing, .themenav .affix .nav-link:focus.section--organizing, .themenav .affix .nav-link:active.section--organizing, .themenav .affix .nav-link .nav-link.section--organizing, .themenav .affix li.active:hover.section--organizing, .themenav .affix li.active:focus.section--organizing, .themenav .affix li.active:active.section--organizing, .themenav .affix li.active .nav-link.section--organizing {
-  background-color: #332a29;
-}
-.themenav .affix .nav-link:hover.section--talent, .themenav .affix .nav-link:focus.section--talent, .themenav .affix .nav-link:active.section--talent, .themenav .affix .nav-link .nav-link.section--talent, .themenav .affix li.active:hover.section--talent, .themenav .affix li.active:focus.section--talent, .themenav .affix li.active:active.section--talent, .themenav .affix li.active .nav-link.section--talent {
-  background-color: #1d2f21;
-}
-.themenav .affix .nav-link:hover.section--design, .themenav .affix .nav-link:focus.section--design, .themenav .affix .nav-link:active.section--design, .themenav .affix .nav-link .nav-link.section--design, .themenav .affix li.active:hover.section--design, .themenav .affix li.active:focus.section--design, .themenav .affix li.active:active.section--design, .themenav .affix li.active .nav-link.section--design {
-  background-color: #a1084f;
-}
-.themenav .affix .nav-link:hover.section--foundations, .themenav .affix .nav-link:focus.section--foundations, .themenav .affix .nav-link:active.section--foundations, .themenav .affix .nav-link .nav-link.section--foundations, .themenav .affix li.active:hover.section--foundations, .themenav .affix li.active:focus.section--foundations, .themenav .affix li.active:active.section--foundations, .themenav .affix li.active .nav-link.section--foundations {
-  background-color: #151512;
-}
-.themenav .affix .nav-link:hover.section--yourthoughts, .themenav .affix .nav-link:focus.section--yourthoughts, .themenav .affix .nav-link:active.section--yourthoughts, .themenav .affix .nav-link .nav-link.section--yourthoughts, .themenav .affix li.active:hover.section--yourthoughts, .themenav .affix li.active:focus.section--yourthoughts, .themenav .affix li.active:active.section--yourthoughts, .themenav .affix li.active .nav-link.section--yourthoughts {
-  background-color: #702c0f;
 }
