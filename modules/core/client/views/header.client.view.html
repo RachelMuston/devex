@@ -18,7 +18,7 @@
           <li><a href="#beta-definition" aria-controls="beta-definition" class="wb-lbx lbx-modal btn btn-primary" role="button">BETA</a></li>
           <li><a href="/authentication/government">Sign Up</a></li>
           <li><a href="/authentication/signinadmin">Sign In</a></li>
-          <li><a lang="fr" href="#">Français</a></li>
+          <li><a ng-click="changeLanguage()">{{ 'CHANGE_LANGUAGE' | translate }}</a></li>
         </ul>
           <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">
               <li class="dropdown" uib-dropdown>
@@ -36,7 +36,7 @@
                       </li>
                   </ul>
               </li>
-              <li><a lang="fr" href="#">Français</a></li>
+              <li><a ng-click="changeLanguage()">{{ 'CHANGE_LANGUAGE' | translate }}</a></li>
           </ul>
       </div>
     </div>

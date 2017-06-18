@@ -7,16 +7,17 @@
     applicationEnvironment: window.env,
     applicationModuleName: applicationModuleName,
     applicationModuleVendorDependencies: [
-    'ngResource',
-    'ngAnimate',
-    'ngMessages',
-    'ui.router',
-    'ui.bootstrap',
-    'ui.tinymce',
-    'ngFileUpload',
-    'ngImgCrop',
-    'ui-notification',
-    'ncy-angular-breadcrumb'
+      'ngResource',
+      'ngAnimate',
+      'ngMessages',
+      'ui.router',
+      'ui.bootstrap',
+      'ui.tinymce',
+      'ngFileUpload',
+      'ngImgCrop',
+      'ui-notification',
+      'ncy-angular-breadcrumb',
+      'pascalprecht.translate'
     ],
     registerModule: registerModule
   };

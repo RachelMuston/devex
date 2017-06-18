@@ -5,9 +5,9 @@
     .module('core')
     .controller('HeaderController', HeaderController);
 
-  HeaderController.$inject = ['$scope', '$state', '$location', 'Authentication', 'menuService'];
+  HeaderController.$inject = ['$scope', '$state', '$translate', '$location', 'Authentication', 'menuService'];
 
-  function HeaderController($scope, $state, $location, Authentication, menuService) {
+  function HeaderController($scope, $state, $translate, $location, Authentication, menuService) {
     var vm = this;
 
     vm.accountMenu = menuService.getMenu('account').items[0];
@@ -37,7 +37,10 @@
       // Collapsing the menu after navigation
       vm.isCollapsed = false;
     }
+
+    $scope.changeLanguage = function () {
+      var newLang = ($translate.use() === 'fr') ? 'en' : 'fr';
+      $translate.use(newLang);
+    };
   }
-
-
 }());
