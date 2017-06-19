@@ -52,7 +52,7 @@
       IMG_CAP2: 'Electric typewriter, patent number: 120693. <a href="https://www.flickr.com/photos/lac-bac">LibraryArchives on Flickr</a>.',
       IMG_CAP3: 'Children gathered around a table of books, Central Circulating Library at College and St. George Streets, Toronto, Ontario. <a href="https://www.flickr.com/photos/lac-bac">LibraryArchives on Flickr</a>.',
       VID_TITLE: 'Government collaboration at CodeFest',
-      VID_P1: 'Highlights from the 2nd CodeFest held in August 2013.',
+      VID_P1: 'Highlights from the 2<sup>nd</sup> CodeFest held in August 2013.',
       LINKS_TITLE1: 'Work With Us',
       LINKS_A1: '<a href="https://beta.gcdevexchange.org/about">About the Developer Exchange</a>',
       LINKS_A2: '<a href="https://github.com/canada-ca/welcome">Canada on GitHub</a>',
@@ -80,6 +80,12 @@
       FOOTER_LINK5: '<a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>',
       FOOTER_TOP: 'Top of Page <span class="glyphicon glyphicon-chevron-up"></span>',
       FOOTER_FIP: '<object type="image/svg+xml" tabindex="-1" role="img" data="https://wet-boew.github.io/themes-dist/GCWeb/assets/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object>',
+      TEAMS_TITLE: 'All Teams',
+      TEAMS_P1: 'The following table contains a list of all programs participating in GC DevEx beta. Filter the list by typing the name of a team or organization or sort a column using the arrows.',
+      TEAMS_P2: 'This is not a full list of all GC programs. A full list of all GC services or information is available on <a href="https://www.canada.ca/en/services.html">canada.ca</a>.',
+      TEAMS_TH1: 'Team Title',
+      TEAMS_TH2: 'Description',
+      TEAMS_TH3: 'Department',
     })
     .translations('fr', {
       TEAMS: 'Équipes',
@@ -105,8 +111,8 @@
       IMG_CAP1: 'Deux travailleuses de Hamilton (Ontario) vérifient la résistance à la traction d\'un morceau de caoutchouc synthétique dans le laboratoire de la Polymer Rubber Corporation, Sarnia (Ontario). <a href="https://www.flickr.com/photos/lac-bac">BiblioArchives sur Flickr</a>.',
       IMG_CAP2: 'Clavigraphe électrique, numéro de brevet : 120693. <a href="https://www.flickr.com/photos/lac-bac">BiblioArchives sur Flickr</a>.',
       IMG_CAP3: 'Des enfants autour d\'une table de livres à la Bibliothèque centrale de prêts à l\'intersection des rues College et Saint-George, à Toronto (Ontario). <a href="https://www.flickr.com/photos/lac-bac">BiblioArchives sur Flickr</a>.',
-      VID_TITLE: '',
-      VID_P1: '',
+      VID_TITLE: 'Collaboration gouvernementale à CodeFest',
+      VID_P1: 'Faits saillants de la 2<sup>ème</sup> CodeFest tenue en août 2013.',
       LINKS_TITLE1: 'Travailler avec nous',
       LINKS_A1: '<a href="https://beta.gcdevexchange.org/about">Au sujet de CarrefourProgGC</a>',
       LINKS_A2: '<a href="https://github.com/canada-ca/welcome">Le Canada et GitHub</a>',
@@ -134,6 +140,12 @@
       FOOTER_LINK5: '<a href="https://www.canada.ca/fr/transparence/confidentialite.html">Confidentialité</a>',
       FOOTER_TOP: 'Haut de la page <span class="glyphicon glyphicon-chevron-up"></span>',
       FOOTER_FIP: '<object type="image/svg+xml" tabindex="-1" role="img" data="./GCWeb/assets/wmms-blk.svg" aria-label="Symbole du gouvernement du Canada"></object>',
+      TEAMS_TITLE: 'Toutes les équipes',
+      TEAMS_P1: 'Le tableau suivant contient une liste de tous les programmes qui participent à CarrefourProgGC bêta. Filtrez la liste en inscrivant le nom d\'une équipe ou d\'une organisation ou triez une colonne au moyen des flèches.',
+      TEAMS_P2: 'Ceci n\'est pas une liste complète de tous les programmes du gouvernement du Canada. Pour obtenir la liste complète de tous les services du gouvernement du Canada ou des renseignements à ce sujet, allez à canada.ca.',
+      TEAMS_TH1: 'Nom de l’équipe',
+      TEAMS_TH2: 'Description',
+      TEAMS_TH3: 'Ministère',
     })
     .preferredLanguage('en');
   }
