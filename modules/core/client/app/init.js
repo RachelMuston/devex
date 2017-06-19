@@ -139,7 +139,7 @@
       FOOTER_LINK4: '<a href="https://www.canada.ca/fr/transparence/avis.html">Avis</a>',
       FOOTER_LINK5: '<a href="https://www.canada.ca/fr/transparence/confidentialite.html">Confidentialité</a>',
       FOOTER_TOP: 'Haut de la page <span class="glyphicon glyphicon-chevron-up"></span>',
-      FOOTER_FIP: '<object type="image/svg+xml" tabindex="-1" role="img" data="./GCWeb/assets/wmms-blk.svg" aria-label="Symbole du gouvernement du Canada"></object>',
+      FOOTER_FIP: '<object type="image/svg+xml" tabindex="-1" role="img" data="https://wet-boew.github.io/themes-dist/GCWeb/assets/wmms-blk.svg" aria-label="Symbole du gouvernement du Canada"></object>',
       TEAMS_TITLE: 'Toutes les équipes',
       TEAMS_P1: 'Le tableau suivant contient une liste de tous les programmes qui participent à CarrefourProgGC bêta. Filtrez la liste en inscrivant le nom d\'une équipe ou d\'une organisation ou triez une colonne au moyen des flèches.',
       TEAMS_P2: 'Ceci n\'est pas une liste complète de tous les programmes du gouvernement du Canada. Pour obtenir la liste complète de tous les services du gouvernement du Canada ou des renseignements à ce sujet, allez à canada.ca.',
