@@ -11,10 +11,13 @@
     $stateProvider
       .state('admin', {
         abstract: true,
-        url: '/admin',
+        url: '/{lang:(?:fr|en)}/admin',
         template: '<ui-view autoscroll="true"/>',
         data: {
           roles: ['admin']
+        },
+        params: {
+          lang: 'en'
         }
       });
   }

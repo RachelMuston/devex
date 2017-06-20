@@ -11,14 +11,14 @@
   <div id="wb-bnr" class="container">
     <div class="row">
       <div class="brand col-xs-8">
-          <object type="image/svg+xml" tabindex="-1" data="https://wet-boew.github.io/themes-dist/GCWeb/assets/sig-blk-en.svg"></object><span class="wb-inv"> Government of Canada</span>
+          <object type="image/svg+xml" tabindex="-1" data="https://wet-boew.github.io/themes-dist/GCWeb/assets/sig-blk-en.svg"></object><span class="wb-inv" translate="HEADER_FIP"> Government of Canada</span>
       </div>
       <div class="brand col-xs-4 text-right">
         <ul class="list-inline margin-bottom-none" ng-hide="vm.authentication.user">
           <li><a href="#beta-definition" aria-controls="beta-definition" class="wb-lbx lbx-modal btn btn-primary" role="button">BETA</a></li>
           <li><a href="/authentication/government" translate="SIGNUP">Sign Up</a></li>
           <li><a href="/authentication/signinadmin" translate="SIGNIN">Sign In</a></li>
-          <li><a href="#" ng-click="changeLanguage()" translate="CHANGE_LANGUAGE">Français</a></li>
+          <li><a href="{{otherLangURL}}" translate="CHANGE_LANGUAGE">Français</a></li>
         </ul>
           <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">
               <li class="dropdown" uib-dropdown>
@@ -36,7 +36,7 @@
                       </li>
                   </ul>
               </li>
-              <li><a href="#" ng-click="changeLanguage()" translate="CHANGE_LANGUAGE">Français</a></li>
+              <li><a href="{{otherLangURL}}" translate="CHANGE_LANGUAGE">Français</a></li>
           </ul>
       </div>
     </div>
@@ -44,9 +44,9 @@
 
   <div class="themenav">
     <ul class="nav scroll dragscroll secondary affix-top" data-spy="affix" data-offset-top="150">
-      <li><a class="nav-link" href="/teams" translate="TEAMS">Teams</a></li>
-      <li><a class="nav-link" href="/projects" translate="PROJECTS">Projects</a></li>
-      <li><a class="nav-link" href="/opportunities" translate="OPPORTUNITIES">Opportunities</a></li>
+      <li><a class="nav-link" href="/{{currentLang}}/teams" translate="TEAMS">Teams</a></li>
+      <li><a class="nav-link" href="/{{currentLang}}/projects" translate="PROJECTS">Projects</a></li>
+      <li><a class="nav-link" href="/{{currentLang}}/opportunities" translate="OPPORTUNITIES">Opportunities</a></li>
     </ul>
   </div>
 
@@ -55,7 +55,7 @@
     <div class="container">
       <div class="row">
         <ol class="breadcrumb">
-          <li ng-if="!isHomePage()"><a href="/" translate="HOME">Home</a></li>
+          <li ng-if="!isHomePage()"><a href="/{{currentLang}}" translate="HOME">Home</a></li>
           <li ncy-breadcrumb></li>
         </ol>
       </div>

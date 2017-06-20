@@ -13,12 +13,15 @@
     $stateProvider
       .state('settings', {
         abstract: true,
-        url: '/settings',
+        url: '/{lang:(?:fr|en)}/settings',
         templateUrl: '/modules/users/client/views/settings/settings.client.view.html',
         controller: 'SettingsController',
         controllerAs: 'vm',
         data: {
           roles: ['user', 'admin', 'gov-request', 'gov']
+        },
+        params: {
+          lang: 'en'
         }
       })
       .state('settings.profile', {
@@ -59,7 +62,7 @@
       })
       .state('authentication', {
         abstract: true,
-        url: '/authentication',
+        url: '/{lang:(?:fr|en)}/authentication',
         templateUrl: '/modules/users/client/views/authentication/authentication.client.view.html',
         controller: 'AuthenticationController',
         controllerAs: 'vm',
@@ -70,6 +73,9 @@
         },
         ncyBreadcrumb: {
           label: 'Authentication'
+        },
+        params: {
+          lang: 'en'
         }
       })
       .state('authentication.gov', {
@@ -122,8 +128,11 @@
       })
       .state('password', {
         abstract: true,
-        url: '/password',
-        template: '<ui-view autoscroll="true"/>'
+        url: '/{lang:(?:fr|en)}/password',
+        template: '<ui-view autoscroll="true"/>',
+        params: {
+          lang: 'en'
+        }
       })
       .state('password.forgot', {
         url: '/forgot',
@@ -136,8 +145,11 @@
       })
       .state('password.reset', {
         abstract: true,
-        url: '/reset',
-        template: '<ui-view autoscroll="true"/>'
+        url: '/{lang:(?:fr|en)}/reset',
+        template: '<ui-view autoscroll="true"/>',
+        params: {
+          lang: 'en'
+        }
       })
       .state('password.reset.invalid', {
         url: '/invalid',

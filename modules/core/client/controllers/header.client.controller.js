@@ -18,7 +18,7 @@
     $scope.$on('$stateChangeSuccess', stateChangeSuccess);
     $scope.isHomePage = function() {
         var path = $location.path();
-        return (! path) || path === '/';
+        return (! path) || path === '/' || path === '/en' || path === '/fr';
     };
     $scope.isActiveMenu = function(item) {
         var route = item.state || '',
@@ -36,11 +36,15 @@
     function stateChangeSuccess() {
       // Collapsing the menu after navigation
       vm.isCollapsed = false;
-    }
+    };
 
+    /*
     $scope.changeLanguage = function () {
       var newLang = ($translate.use() === 'fr') ? 'en' : 'fr';
       $translate.use(newLang);
+      document.documentElement.lang = newLang;
+      $state.go($state.current.name, {lang: newLang}, {reload: true});
     };
+    */
   }
 }());

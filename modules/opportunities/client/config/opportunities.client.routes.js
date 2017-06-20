@@ -16,8 +16,11 @@
 		// -------------------------------------------------------------------------
 		.state('opportunities', {
 			abstract: true,
-			url: '/opportunities',
-			template: '<ui-view/>'
+			url: '/{lang:(?:fr|en)}/opportunities',
+			template: '<ui-view/>',
+	        params: {
+	          lang: 'en'
+	        }
 		})
 		// -------------------------------------------------------------------------
 		//
@@ -78,8 +81,11 @@
 		// -------------------------------------------------------------------------
 		.state('opportunityadmin', {
 			abstract: true,
-			url: '/opportunityadmin',
-			template: '<ui-view/>'
+			url: '/{lang:(?:fr|en)}/opportunityadmin',
+			template: '<ui-view/>',
+	        params: {
+	          lang: 'en'
+	        }
 		})
 		// -------------------------------------------------------------------------
 		//

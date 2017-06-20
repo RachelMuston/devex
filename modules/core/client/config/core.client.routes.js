@@ -27,8 +27,16 @@
     });
 
     $stateProvider
-      .state('home', {
-        url: '/',
+      .state('app', {
+        abstract: true,
+        url: '/{lang:(?:fr|en)}',
+        template: '<ui-view/>',
+        params: {
+          lang: 'en'
+        }
+      })
+      .state('app.home', {
+        url: '',
         templateUrl: '/modules/core/client/views/home.client.view.html',
         controller: 'HomeController',
         controllerAs: 'vm',
@@ -36,7 +44,7 @@
           label: 'Home'
         }
       })
-      .state('not-found', {
+      .state('app.not-found', {
         url: '/not-found',
         templateUrl: '/modules/core/client/views/404.client.view.html',
         controller: 'ErrorController',
@@ -54,7 +62,7 @@
           label: 'Not Found'
         }
       })
-      .state('bad-request', {
+      .state('app.bad-request', {
         url: '/bad-request',
         templateUrl: '/modules/core/client/views/400.client.view.html',
         controller: 'ErrorController',
@@ -72,7 +80,7 @@
           label: 'Bad Request'
         }
       })
-      .state('forbidden', {
+      .state('app.forbidden', {
         url: '/forbidden',
         templateUrl: '/modules/core/client/views/403.client.view.html',
         data: {
@@ -80,7 +88,7 @@
           pageTitle: 'Forbidden'
         }
       })
-      .state('disclaimer', {
+      .state('app.disclaimer', {
         url: '/disclaimer',
         templateUrl: '/modules/core/client/views/disclaimer.client.view.html',
         data: {
@@ -88,7 +96,7 @@
           pageTitle: 'Disclaimer'
         }
       })
-      .state('privacy', {
+      .state('app.privacy', {
         url: '/privacy',
         templateUrl: '/modules/core/client/views/privacy.client.view.html',
         data: {
@@ -96,7 +104,7 @@
           pageTitle: 'Privacy'
         }
       })
-      .state('accessibility', {
+      .state('app.accessibility', {
         url: '/accessibility',
         templateUrl: '/modules/core/client/views/accessibility.client.view.html',
         data: {
@@ -104,7 +112,7 @@
           pageTitle: 'Accessibility'
         }
       })
-      .state('codewithus', {
+      .state('app.codewithus', {
         url: '/codewithus',
         templateUrl: '/modules/core/client/views/codewithus.view.html',
         data: {
@@ -112,7 +120,7 @@
           pageTitle: 'Code With Us'
         }
       })
-      .state('iotblog', {
+      .state('app.iotblog', {
         url: '/iotblog',
         templateUrl: '/modules/core/client/views/iotblog.view.html',
         data: {
@@ -120,7 +128,7 @@
           pageTitle: 'IOT Blog'
         }
       })
-      .state('codewithusps', {
+      .state('app.codewithusps', {
         url: '/codewithusps',
         templateUrl: '/modules/core/client/views/codewithus-ps.view.html',
         data: {
@@ -128,7 +136,7 @@
           pageTitle: 'Code With Us'
         }
       })
-      .state('about', {
+      .state('app.about', {
         url: '/about',
         templateUrl: '/modules/core/client/views/about.view.html',
         data: {
@@ -136,7 +144,7 @@
           pageTitle: 'About Us'
         }
       })
-      .state('copyright', {
+      .state('app.copyright', {
         url: '/copyright',
         templateUrl: '/modules/core/client/views/copyright.client.view.html',
         data: {

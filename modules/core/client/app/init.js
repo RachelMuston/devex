@@ -36,6 +36,7 @@
       HOME: 'Home',
       BETA_DESC: 'The term “beta” in software development refers to a development phase within its lifecycle that provides opportunities to conduct proofing and testing often with users from outside of the project team (general public).  This allows the project team to adjust the product according to new test data. The distribution of a beta release can be as limiting or vast as project resources allow. The goal of a beta release is to garner feedback on, but not exclusively to, the design, process, and demand by collecting user experience comments and statistics. A beta is ephemeral in nature, and moves into official production status once the proofing and testing is successful.',
       CHANGE_LANGUAGE: 'Français',
+      HEADER_FIP: 'Government of Canada',
       TITLE: 'Government of Canada Developers Exchange',
       ABOUT_TITLE: 'About GC DevEx',
       ABOUT_P1: 'The Government of Canada Developers Exchange (GC DevEx) offers opportunities to developers and designers across Canada to co-create improved digital engagement tools with public servants.',
@@ -79,13 +80,13 @@
       FOOTER_LINK4: '<a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a>',
       FOOTER_LINK5: '<a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>',
       FOOTER_TOP: 'Top of Page <span class="glyphicon glyphicon-chevron-up"></span>',
-      FOOTER_FIP: '<object type="image/svg+xml" tabindex="-1" role="img" data="https://wet-boew.github.io/themes-dist/GCWeb/assets/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object>',
+      FOOTER_FIP: 'Symbol of the Government of Canada',
       TEAMS_TITLE: 'All Teams',
       TEAMS_P1: 'The following table contains a list of all programs participating in GC DevEx beta. Filter the list by typing the name of a team or organization or sort a column using the arrows.',
       TEAMS_P2: 'This is not a full list of all GC programs. A full list of all GC services or information is available on <a href="https://www.canada.ca/en/services.html">canada.ca</a>.',
       TEAMS_TH1: 'Team Title',
       TEAMS_TH2: 'Description',
-      TEAMS_TH3: 'Department',
+      TEAMS_TH3: 'Department'
     })
     .translations('fr', {
       TEAMS: 'Équipes',
@@ -96,6 +97,7 @@
       HOME: 'Accueil',
       BETA_DESC: 'Dans le cadre du développement de logiciels, le terme « bêta » renvoie à une étape de son cycle de vie qui offre la possibilité de faire des examens et des essais, souvent auprès d\'utilisateurs de l\'extérieur de l\'équipe de projet (le grand public). L\'équipe de projet peut ainsi rajuster le projet en fonction des nouvelles données mises à l\'essai. La diffusion d\'une version bêta peut être aussi restreinte ou aussi vaste que le permettent les ressources du projet. La version bêta vise à obtenir de la rétroaction sur notamment la conception, le processus et la demande en recueillant des commentaires sur l\'expérience des utilisateurs ainsi que des statistiques. Une version bêta est de nature éphémère et arrive à l\'étape de production officielle une fois que les examens et les essais sont concluants.',
       CHANGE_LANGUAGE: 'English',
+      HEADER_FIP: 'Gouvernement du Canada',
       TITLE: 'Le Carrefour des développeurs du gouvernement du Canada',
       ABOUT_TITLE: 'Au sujet de CarrefourProgGC',
       ABOUT_P1: 'Le Carrefour des développeurs du gouvernement du Canada (CarrefourProgGC) offre la possibilité aux développeurs et aux concepteurs de l\'ensemble du Canada de créer, en collaboration avec des fonctionnaires, des outils d\'engagement numérique améliorés.',
@@ -139,13 +141,13 @@
       FOOTER_LINK4: '<a href="https://www.canada.ca/fr/transparence/avis.html">Avis</a>',
       FOOTER_LINK5: '<a href="https://www.canada.ca/fr/transparence/confidentialite.html">Confidentialité</a>',
       FOOTER_TOP: 'Haut de la page <span class="glyphicon glyphicon-chevron-up"></span>',
-      FOOTER_FIP: '<object type="image/svg+xml" tabindex="-1" role="img" data="https://wet-boew.github.io/themes-dist/GCWeb/assets/wmms-blk.svg" aria-label="Symbole du gouvernement du Canada"></object>',
+      FOOTER_FIP: 'Symbole du gouvernement du Canada',
       TEAMS_TITLE: 'Toutes les équipes',
       TEAMS_P1: 'Le tableau suivant contient une liste de tous les programmes qui participent à CarrefourProgGC bêta. Filtrez la liste en inscrivant le nom d\'une équipe ou d\'une organisation ou triez une colonne au moyen des flèches.',
       TEAMS_P2: 'Ceci n\'est pas une liste complète de tous les programmes du gouvernement du Canada. Pour obtenir la liste complète de tous les services du gouvernement du Canada ou des renseignements à ce sujet, allez à canada.ca.',
       TEAMS_TH1: 'Nom de l’équipe',
       TEAMS_TH2: 'Description',
-      TEAMS_TH3: 'Ministère',
+      TEAMS_TH3: 'Ministère'
     })
     .preferredLanguage('en');
   }

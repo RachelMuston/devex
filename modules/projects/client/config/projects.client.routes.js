@@ -16,8 +16,11 @@
 		// -------------------------------------------------------------------------
 		.state('projects', {
 			abstract: true,
-			url: '/projects',
-			template: '<ui-view/>'
+			url: '/{lang:(?:fr|en)}/projects',
+			template: '<ui-view/>',
+	        params: {
+	          lang: 'en'
+	        }
 		})
 		// -------------------------------------------------------------------------
 		//
@@ -77,8 +80,11 @@
 		// -------------------------------------------------------------------------
 		.state('projectadmin', {
 			abstract: true,
-			url: '/projectadmin',
-			template: '<ui-view/>'
+			url: '/{lang:(?:fr|en)}/projectadmin',
+			template: '<ui-view/>',
+	        params: {
+	          lang: 'en'
+	        }
 		})
 		// -------------------------------------------------------------------------
 		//
