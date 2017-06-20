@@ -86,7 +86,14 @@
       TEAMS_P2: 'This is not a full list of all GC programs. A full list of all GC services or information is available on <a href="https://www.canada.ca/en/services.html">canada.ca</a>.',
       TEAMS_TH1: 'Team Title',
       TEAMS_TH2: 'Description',
-      TEAMS_TH3: 'Department'
+      TEAMS_TH3: 'Department',
+      PROG_TITLE: 'Teams List',
+      PROG_ALL: 'All teams',
+      PROJ_TITLE: 'Projects List',
+      PROJ_ALL: 'All projects',
+      OPP_TITLE: 'Opportunities List',
+      OPP_ALL: 'All opportunities',
+      OPP_CTA: 'Want to get notified when new opportunities are posted?'
     })
     .translations('fr', {
       TEAMS: 'Équipes',
@@ -147,7 +154,14 @@
       TEAMS_P2: 'Ceci n\'est pas une liste complète de tous les programmes du gouvernement du Canada. Pour obtenir la liste complète de tous les services du gouvernement du Canada ou des renseignements à ce sujet, allez à canada.ca.',
       TEAMS_TH1: 'Nom de l’équipe',
       TEAMS_TH2: 'Description',
-      TEAMS_TH3: 'Ministère'
+      TEAMS_TH3: 'Ministère',
+      PROG_TITLE: 'Liste des équipes',
+      PROG_ALL: 'Toutes les équipes',
+      PROJ_TITLE: 'Liste des projets',
+      PROJ_ALL: 'Toutes les projets',
+      OPP_TITLE: 'Liste des possibilités',
+      OPP_ALL: 'Toutes les possibilités',
+      OPP_CTA: 'Voulez-vous recevoir un avis quand de nouvelles possibilités sont affichées?'
     })
     .preferredLanguage('en');
   }

@@ -32,10 +32,10 @@
 			url: '',
 			templateUrl: '/modules/opportunities/client/views/list-opportunities.client.view.html',
 			data: {
-				pageTitle: 'Opportunities List'
+				pageTitle: '{{ "OPP_TITLE" | translate }}'
 			},
 			ncyBreadcrumb: {
-				label: 'All opportunities'
+				label: '{{ "OPP_ALL" | translate }}'
 			},
 			resolve: {
 				opportunities: function ($stateParams, OpportunitiesService) {

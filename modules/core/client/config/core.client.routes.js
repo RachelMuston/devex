@@ -41,7 +41,7 @@
         controller: 'HomeController',
         controllerAs: 'vm',
         ncyBreadcrumb: {
-          label: 'Home'
+          label: '{{ "HOME" | translate }}'
         }
       })
       .state('app.not-found', {

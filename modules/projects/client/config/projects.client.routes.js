@@ -32,10 +32,11 @@
 			url: '',
 			templateUrl: '/modules/projects/client/views/list-projects.client.view.html',
 			data: {
-				pageTitle: 'Projects List'
+				pageTitle: '{{ "PROJ_TITLE" | translate }}'
 			},
 			ncyBreadcrumb: {
 				label: 'All projects'
+				label: '{{ "PROJ_ALL" | translate }}'
 			},
 			resolve: {
 				projects: function ($stateParams, ProjectsService) {
