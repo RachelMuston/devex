@@ -1,6 +1,10 @@
-# BCDevExchange Application
+Le français suit
 
-The [BCDevExchange](https://bcdevexchange.org) is a platform for providing new ways for British Columbia's public sector to connect with developers and other IT professionals.
+This page is a work in progress/Cette page est un travail en coures
+
+# GCDevExchange Application
+
+The [GCDevExchange](https://beta.gcdevexchange.org) is a platform for providing new ways for the Government of Canada to connect with developers and other IT professionals.
 
 The latest version is a mean.js application running in OpenShift using Docker.
 
@@ -8,15 +12,15 @@ The latest version is a mean.js application running in OpenShift using Docker.
 
 ## Table of Contents
 
-* [Contributing](https://github.com/BCDevExchange/devex#contribute)
-* [Development](https://github.com/BCDevExchange/devex#development)
-* [Copyright and License](https://github.com/BCDevExchange/devex#copyright-and-license)
+* [Contributing](https://github.com/gctools-outilsgc/devex#contribute)
+* [Development](https://github.com/gctools-outilsgc/devex#development)
+* [Copyright and License](https://github.com/gctools-outilsgc/devex#copyright-and-license)
 
 ***
 
 ## Contribute
 
-We are open to pull requests. Please read our [contributing guidelines](https://github.com/BCDevExchange/devex/blob/master/CONTRIBUTING.md). 
+We are open to pull requests. Please read our [contributing guidelines](https://github.com/gctools-outilsgc/devex/blob/master/CONTRIBUTING.md). 
 
 ## Development
 
@@ -100,4 +104,4 @@ Finally, execute prod task `npm run start:prod`
 
 ## Copyright and License
 
-Code and documentation copyright 2016-2017 the [BC Developers' Exchange](https://bcdevexchange.org). Code released under the [Apache License, Version 2.0](https://github.com/BCDevExchange/devex/blob/master/LICENSE).
+Code and documentation copyright 2016-2017 the [GC Developers' Exchange](https://beta.gcdevexchange.org). Code released under the [Apache License, Version 2.0](https://github.com/gctools-outilsgc/devex/blob/master/LICENSE).
