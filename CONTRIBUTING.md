@@ -1,4 +1,8 @@
-## Contributing to BCDevExchange.org
+(Le français suit)
+
+This page is a work in progress/Cette page est un travail en cours
+
+## Contributing to https://beta.gcdevexchange.org/
 
 Government employees, public and members of the private sector are encouraged to contribute to the repository by **forking and submitting a pull request**.
 
@@ -6,4 +10,4 @@ Government employees, public and members of the private sector are encouraged to
 
 Pull requests will be evaluated by the repository guardians on a schedule and if deemed beneficial will be committed to the master.
 
-All contributors retain the original copyright to their stuff, but by contributing to this project, you grant a world-wide, royalty-free, perpetual, irrevocable, non-exclusive, transferable license to all users **under the terms of the [license](https://github.com/BCDevExchange/devex/blob/master/LICENSE) under which this project is distributed**.
+All contributors retain the original copyright to their stuff, but by contributing to this project, you grant a world-wide, royalty-free, perpetual, irrevocable, non-exclusive, transferable license to all users **under the terms of the [license](https://github.com/gctools-outilsgc/devex/blob/master/LICENSE) under which this project is distributed**.
