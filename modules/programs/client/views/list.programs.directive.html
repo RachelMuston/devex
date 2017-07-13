@@ -27,7 +27,7 @@
         <tr role="row" ng-repeat="program in vm.programs">
             <td><a ui-sref="programs.view({ programId: program.code })" ng-bind="program.title"></a></td>
             <td><p ng-bind="program.short"></p></td>
-            <td><p ng-bind="program.owner"></p></td>
+            <td><p ng-bind="program.department"></p></td>
         </tr>
     </tbody>
 </table>
